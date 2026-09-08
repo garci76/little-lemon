@@ -1,0 +1,16 @@
+.call-to-action h2 {
+    color: #F4CE14;
+    font-size: 64px;
+    line-height: 0;
+}
+
+.call-to-action h3 {
+    font-size: 40px;
+    line-height: 0.2;
+}
+
+.call-to-action p {
+    font-size: 18px;
+    font-family: 'Karla', Arial, serif;
+    width: 300px;
+}

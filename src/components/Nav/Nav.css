@@ -1,0 +1,18 @@
+nav {
+    display: flex;
+    flex-direction: row;
+    height: 120px;
+    align-items: center;
+    justify-content: center;
+}
+
+nav img {
+    width: 200px;
+}
+
+nav ul li {
+    display: inline-block;
+    padding: 1em;
+    font-family: 'Karla', Arial, serif;
+    font-weight: bold;
+}
