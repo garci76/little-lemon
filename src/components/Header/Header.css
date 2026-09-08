@@ -6,6 +6,7 @@ header {
     height: 406px;
     font-family: 'Markazi Text', serif;
     color: white;
+    padding: 16px;
 }
 
 header section {
@@ -19,4 +20,11 @@ header section img {
     height: 429px;
     border-radius: 16px;
     margin-top: 66px;
+}
+
+@media (max-width: 832px) {
+    header section img {
+        width: 20vw;
+        height: 22.57vw;
+    }
 }
