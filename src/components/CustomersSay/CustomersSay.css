@@ -1,0 +1,23 @@
+.customers-say {
+    background: var(--primary-color);
+    width: 100%;
+    min-height: 590px;
+    padding: 24px 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.customers-say .title {
+    color: var(--primary-b-color);
+    padding: 100px 0;
+}
+
+.customers-say .cards {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 32px;
+    flex-wrap: wrap;
+}

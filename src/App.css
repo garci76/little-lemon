@@ -2,6 +2,7 @@
 .App {
     display: flex;
     flex-direction: column;
+    min-width: 375px;
 }
 
 .action-button {
@@ -10,7 +11,8 @@
     padding: 20px;
     border: none;
     text-decoration: none;
-    border-radius: 12px;
+    border-radius: var(--border-radius-normal);
+    height: 60px;
 }
 
 :root {
@@ -18,8 +20,11 @@
     --primary-b-color: #f4ce14;
     --secondary-color: #ee9972;
     --secondary-b-color: #fbdabb;
-    --light-gray: #edefee;
-    --dark-gray: #333333;
+    --light-gray-color: #edefee;
+    --dark-gray-color: #333333;
+
+    --border-radius-normal: 16px;
+    --border-radius-reduced: 8px;
 }
 
 .title-font {
