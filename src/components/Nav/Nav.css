@@ -4,13 +4,53 @@ nav {
     height: 120px;
     align-items: center;
     justify-content: center;
+    flex-shrink: 0;
+    padding: 0 16px;
 }
 
-nav img {
+nav button {
+    border: none;
+    background: none;
+    cursor: pointer;
+}
+
+nav .hamburger {
+    display: none;
+}
+
+nav .basket {
+    display: none;
+}
+
+nav .logo {
     width: 200px;
 }
 
 nav ul li {
     display: inline-block;
-    padding: 1em;
+    padding: 0.75em;
+}
+
+@media (max-width: 880px) {
+    nav {
+        height: 72px;
+        justify-content: space-between;
+    }
+
+    nav .hamburger {
+        display: block;
+        width: 32px;
+    }
+
+    nav .basket {
+        display: block;
+    }
+
+    nav img {
+        height: 40px;
+    }
+
+    nav ul {
+        display: none;
+    }
 }

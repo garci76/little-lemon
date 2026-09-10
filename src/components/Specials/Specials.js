@@ -8,7 +8,7 @@ export const Specials = () => {
         <div className="specials">
             <section className='title'>
                 <p className='title-font'>This weeks specials!</p>
-                <button aria-label="On Click" className='action-button card-title-font'>
+                <button className='action-button card-title-font'>
                     Online Menu
                 </button>
             </section>
