@@ -1,10 +1,9 @@
 header {
-    background-color: #495E57;
+    background-color: var(--primary-color);
     display: flex;
     flex-direction: row;
     justify-content: space-evenly;
     height: 406px;
-    font-family: 'Markazi Text', serif;
     color: white;
     padding: 16px;
 }
@@ -24,7 +23,7 @@ header section img {
 
 @media (max-width: 832px) {
     header section img {
-        width: 20vw;
-        height: 22.57vw;
+        width: 30vw;
+        height: 33.85vw;
     }
 }

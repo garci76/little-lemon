@@ -5,12 +5,82 @@
 }
 
 .action-button {
-    background-color: #F4CE14;
+    background-color: var(--primary-b-color);
     color: black;
     padding: 20px;
     border: none;
     text-decoration: none;
     border-radius: 12px;
-    font-size: 16px;
-    font-weight: bold;
 }
+
+:root {
+    --primary-color: #495e57;
+    --primary-b-color: #f4ce14;
+    --secondary-color: #ee9972;
+    --secondary-b-color: #fbdabb;
+    --light-gray: #edefee;
+    --dark-gray: #333333;
+}
+
+.title-font {
+    font-family: 'Markazi Text', serif;
+    font-size: 64px;
+    font-weight: 500;
+}
+
+.subtitle-font {
+    font-family: 'Markazi Text', serif;
+    font-size: 40px;
+    font-weight: 400;
+}
+
+.lead-text-font {
+    font-family: 'Karla', Arial, serif;
+    font-size: 18px;
+    font-weight: 500;
+}
+
+.section-title-font {
+    font-family: 'Karla', Arial, serif;
+    font-size: 20px;
+    font-weight: 800;
+}
+
+.section-font {
+    font-family: 'Karla', Arial, serif;
+    font-size: 16px;
+    font-weight: 800;
+}
+
+.card-title-font {
+    font-family: 'Karla', Arial, serif;
+    font-size: 18px;
+    font-weight: 700;
+}
+
+.paragraph-font {
+    font-family: 'Karla', Arial, serif;
+    font-size: 16px;
+    font-weight: 400;
+}
+
+.highlight-text-font {
+    font-family: 'Karla', Arial, serif;
+    font-size: 16px;
+    font-weight: 500;
+}
+
+.link-font {
+    font-family: 'Karla', Arial, serif;
+    font-size: 18px;
+    font-weight: 700;
+}
+
+
+
+
+
+
+
+
+
