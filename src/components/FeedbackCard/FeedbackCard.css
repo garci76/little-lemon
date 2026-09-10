@@ -1,0 +1,39 @@
+.feedback-card {
+    background-color: var(--light-gray-color);
+    border-radius: var(--border-radius-reduced);
+    color: var(--primary-color);
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding: 24px;
+    width: min(100%, 239px);
+    box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+.feedback-card .rating {
+    color: var(--primary-b-color);
+    display: flex;
+    font-size: 32px;
+    gap: 8px;
+}
+
+.feedback-card .name {
+    align-items: center;
+    display: flex;
+    gap: 16px;
+}
+
+.feedback-card .name h2 {
+    color: var(--dark-gray-color);
+    margin: 0;
+}
+
+.feedback-card .image {
+    border-radius: 50%;
+    height: 64px;
+    width: 64px;
+}
+
+.feedback-card .description {
+    color: var(--primary-color);
+}
