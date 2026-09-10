@@ -1,8 +1,9 @@
-
 .App {
     display: flex;
     flex-direction: column;
     min-width: 375px;
+    height: 100%;
+    overflow: hidden;
 }
 
 .action-button {
@@ -13,6 +14,7 @@
     text-decoration: none;
     border-radius: var(--border-radius-normal);
     height: 60px;
+    white-space: nowrap;
 }
 
 :root {
@@ -81,11 +83,8 @@
     font-weight: 700;
 }
 
-
-
-
-
-
-
-
-
+@media (max-width: 880px) {
+    .App > footer {
+        display: none !important;
+    }
+}

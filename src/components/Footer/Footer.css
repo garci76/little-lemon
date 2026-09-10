@@ -1,0 +1,36 @@
+footer {
+    display: flex;
+    flex-direction: row;
+    gap: 50px;
+    padding: 24px;
+    justify-content: center;
+}
+
+footer img {
+    width: 100px;
+}
+
+footer li {
+    list-style-type: none;
+}
+
+footer ul {
+    padding-left: 0;
+}
+
+footer section {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 50px;
+}
+
+@media (max-width: 768px) {
+    footer img {
+        width: 80px;
+    }
+
+    footer section {
+        gap: 30px;
+    }
+}

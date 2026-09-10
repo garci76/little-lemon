@@ -14,7 +14,7 @@
     width: 300px;
 }
 
-@media (max-width: 832px) {
+@media (max-width: 880px) {
     .call-to-action p {
         width: calc(max(250px, 50vw));
     }

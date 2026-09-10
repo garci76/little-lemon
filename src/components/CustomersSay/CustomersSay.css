@@ -1,7 +1,6 @@
 .customers-say {
     background: var(--primary-color);
     width: 100%;
-    min-height: 590px;
     padding: 24px 0;
     display: flex;
     flex-direction: column;
@@ -11,7 +10,7 @@
 
 .customers-say .title {
     color: var(--primary-b-color);
-    padding: 100px 0;
+    padding: 32px 0;
 }
 
 .customers-say .cards {

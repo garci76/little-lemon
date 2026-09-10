@@ -1,13 +1,15 @@
+import "./Footer.css";
+
 export const Footer = () => {
     return(
         <footer>
+            <div>
+                <img src='/images/lemon.png' alt='logo' />
+            </div>
             <section>
                 <div>
-                    <img src='/images/Logo.svg' alt='logo' />
-                </div>
-                <div>
-                    <h3>Document Navigation</h3>
-                    <ul>
+                    <h3 className="card-title-font">Doormat Navigation</h3>
+                    <ul className="link-font">
                         <li>Home</li>
                         <li>About</li>
                         <li>Menu</li>
@@ -17,16 +19,16 @@ export const Footer = () => {
                     </ul>
                 </div>
                 <div>
-                    <h3>Contact</h3>
-                    <ul>
+                    <h3 className="card-title-font">Contact</h3>
+                    <ul className="link-font">
                         <li>Address</li>
                         <li>Phone Number</li>
                         <li>Email</li>
                     </ul>
                 </div>
                 <div>
-                    <h3>Social Media Links</h3>
-                    <ul>
+                    <h3 className="card-title-font">Social Media Links</h3>
+                    <ul className="link-font">
                         <li>Address</li>
                         <li>Phone Number</li>
                         <li>Email</li>

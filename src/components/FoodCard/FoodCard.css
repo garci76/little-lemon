@@ -5,6 +5,7 @@
     width: 265px;
     overflow: hidden;
     border-radius: var(--border-radius-normal) var(--border-radius-normal) 0 0;
+    box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
 }
 
 .food-card .image {
@@ -56,7 +57,7 @@
     width: 22px;
 }
 
-@media (max-width: 832px) {
+@media (max-width: 880px) {
     .food-card {
         width: min(370px, 100%);
     }
