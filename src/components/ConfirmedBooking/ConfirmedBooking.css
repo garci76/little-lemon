@@ -1,0 +1,32 @@
+.confirmed-booking {
+    box-sizing: border-box;
+    display: flex;
+    flex: 1 1 100%;
+    flex-direction: column;
+    align-items: center;
+    padding: 18px 13px 24px;
+}
+
+.confirmed-booking .confirmation-message {
+    text-align: center;
+}
+
+.confirmed-booking .home-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: min(100%, 540px);
+    min-height: 60px;
+    margin-top: 40px;
+    border-radius: var(--border-radius-normal);
+    background-color: var(--primary-color);
+    color: #fff;
+    text-decoration: none;
+}
+
+.confirmed-booking button {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    color: white;
+}

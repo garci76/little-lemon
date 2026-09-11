@@ -2,7 +2,7 @@ import { render, screen, fireEvent } from '@testing-library/react';
 import { BrowserRouter } from 'react-router-dom';
 import App from './App';
 import { initializeTimes, updateTimes } from './components/Main';
-import {BookingForm} from "./components/BookingPage/BookingForm";
+import {BookingForm} from "./components/BookingForm/BookingForm";
 
 test('Renders the Header heading', () => {
     render(
