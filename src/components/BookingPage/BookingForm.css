@@ -3,3 +3,14 @@
     max-width: 200px;
     gap: 20px;
 }
+
+.booking-form .error {
+    color: red;
+    font-size: 0.875rem;
+    margin-top: -12px;
+}
+
+.booking-form input[aria-invalid="true"],
+.booking-form select[aria-invalid="true"] {
+    border: 2px solid red;
+}
