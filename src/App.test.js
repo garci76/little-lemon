@@ -1,13 +1,38 @@
-import { render, screen } from '@testing-library/react';
+import { render, screen, fireEvent } from '@testing-library/react';
 import { BrowserRouter } from 'react-router-dom';
 import App from './App';
+import { initializeTimes, updateTimes } from './components/Main';
 
-test('renders the booking link', () => {
-  render(
-    <BrowserRouter>
-      <App />
-    </BrowserRouter>
-  );
+test('Renders the Header heading', () => {
+    render(
+        <BrowserRouter future={{v7_startTransition: true, v7_relativeSplatPath: true}}>
+            <App />
+        </BrowserRouter>
+    );
+    const headingElement = screen.getByText("Reserve Table");
+    expect(headingElement).toBeInTheDocument();
 
-  expect(screen.getByRole('link', { name: /reserve table/i })).toHaveAttribute('href', '/booking');
+    const reserveButton = screen.getByRole('link', { name: /reserve table/i });
+    fireEvent.click(reserveButton);
+
+    const headingElementNew = screen.getByText("Choose date");
+    expect(headingElementNew).toBeInTheDocument();
+})
+
+
+test('initializeTimes returns the expected available times', () => {
+    expect(initializeTimes()).toEqual([
+        "17:00",
+        "18:00",
+        "19:00",
+        "20:00",
+        "21:00",
+        "22:00",
+    ]);
+});
+
+test('updateTimes returns the available times provided in state', () => {
+    const availableTimes = ["17:00", "18:00", "19:00"];
+
+    expect(updateTimes(availableTimes, "2026-09-11")).toBe(availableTimes);
 });
