@@ -9,7 +9,7 @@ export const CallToAction = () => {
             <h3 className="subtitle-font">Chicago</h3>
             <p className="lead-text-font">We are a family owned Mediterranean restaurant, focused on traditional recipes served with a modern twist.</p>
             <Link to="/Booking">
-                <button className='action-button card-title-font'>
+                <button className='action-button card-title-font' aria-label="On Click">
                     Reserve Table
                 </button>
             </Link>

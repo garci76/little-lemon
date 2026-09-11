@@ -87,7 +87,7 @@ export const BookingForm = ({ availableTimes, dispatch, date: dateState, time: t
             </select>
             {errors.occasion && <span className="error">{errors.occasion}</span>}
 
-            <input type="submit" value="Make Your reservation" />
+            <input type="submit" aria-label="On Click" value="Make Your reservation" />
         </form>
     )
 }
