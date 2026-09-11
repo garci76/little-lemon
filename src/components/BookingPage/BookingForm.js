@@ -1,13 +1,12 @@
 import "./BookingForm.css"
 
-export const BookingForm = ({ availableTimes: availableTimesState, date: dateState, time: timeState,
+export const BookingForm = ({ availableTimes, dispatch, date: dateState, time: timeState,
                               guests: guestsState, occasion: occasionState }) => {
 
     const [date, setDate] = dateState;
     const [time, setTime] = timeState;
     const [guests, setGuests] = guestsState;
     const [occasion, setOccasion] = occasionState;
-    const [availableTimes] = availableTimesState;
 
     return (
         <form className="booking-form">
@@ -16,7 +15,10 @@ export const BookingForm = ({ availableTimes: availableTimesState, date: dateSta
                 type="date"
                 id="res-date"
                 value={date}
-                onChange={(event) => setDate(event.target.value)}
+                onChange={(event) => {
+                    setDate(event.target.value);
+                    dispatch(event.target.value);
+                }}
             />
 
             <label htmlFor="res-time">Choose time</label>

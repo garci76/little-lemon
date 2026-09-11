@@ -1,7 +1,20 @@
 import {Route, Routes} from "react-router-dom";
 import {HomePage} from "./HomePage/HomePage";
 import {BookingPage} from "./BookingPage/BookingPage";
-import {useState} from "react";
+import {useReducer, useState} from "react";
+
+export const initializeTimes = () => [
+    "17:00",
+    "18:00",
+    "19:00",
+    "20:00",
+    "21:00",
+    "22:00",
+];
+
+export const updateTimes = (availableTimes, selectedDate) => {
+    return availableTimes;
+};
 
 export const Main = () => {
 
@@ -9,14 +22,7 @@ export const Main = () => {
     const time = useState("");
     const guests = useState(1);
     const occasion = useState("Birthday");
-    const availableTimes = useState([
-        "17:00",
-        "18:00",
-        "19:00",
-        "20:00",
-        "21:00",
-        "22:00",
-    ]);
+    const [availableTimes, dispatch] = useReducer(updateTimes, [], initializeTimes);
 
     return (
         <Routes>
@@ -27,6 +33,7 @@ export const Main = () => {
                 guests={guests}
                 occasion={occasion}
                 availableTimes={availableTimes}
+                dispatch={dispatch}
             />} />
         </Routes>
     )
