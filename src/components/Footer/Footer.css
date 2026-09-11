@@ -8,6 +8,7 @@ footer {
 
 footer img {
     width: 100px;
+    height: 180px;
 }
 
 footer li {
@@ -28,6 +29,7 @@ footer section {
 @media (max-width: 768px) {
     footer img {
         width: 80px;
+        height: 144px;
     }
 
     footer section {

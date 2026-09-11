@@ -3,9 +3,7 @@ import "./Footer.css";
 export const Footer = () => {
     return(
         <footer>
-            <div>
-                <img src='/images/lemon.png' alt='logo' />
-            </div>
+            <img src='/images/lemon.png' alt='logo' />
             <section>
                 <div>
                     <h3 className="card-title-font">Doormat Navigation</h3>

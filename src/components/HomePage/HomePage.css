@@ -5,3 +5,9 @@
     overflow-x: hidden;
     align-items: center;
 }
+
+@media (min-width: 881px) {
+    .home-page > footer {
+        display: none !important;
+    }
+}
