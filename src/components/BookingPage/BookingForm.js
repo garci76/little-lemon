@@ -27,7 +27,7 @@ export const BookingForm = ({ availableTimes, dispatch, date: dateState, time: t
                 value={time}
                 onChange={(event) => setTime(event.target.value)}
             >
-                <option value="">Select a time</option>
+                <option value="">(Select a time)</option>
                 {availableTimes.map((availableTime) => (
                     <option key={availableTime} value={availableTime}>
                         {availableTime}
@@ -51,14 +51,18 @@ export const BookingForm = ({ availableTimes, dispatch, date: dateState, time: t
                 value={occasion}
                 onChange={(event) => setOccasion(event.target.value)}
             >
+                <option value="">(Select an occasion)</option>
                 <option value="Birthday">Birthday</option>
                 <option value="Anniversary">Anniversary</option>
             </select>
 
-            <input type="submit" value="Make Your reservation" onClick={(event) => {
-                event.preventDefault();
-                submitForm({ date, time, guests, occasion });
-            }} />
+            <input type="submit" value="Make Your reservation"
+                   disabled={!date || !time || !guests || !occasion}
+                   onClick={(event) => {
+                        event.preventDefault();
+                        submitForm({ date, time, guests, occasion });
+                   }}
+            />
         </form>
     )
 }

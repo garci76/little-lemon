@@ -53,7 +53,7 @@ export const Main = () => {
     const date = useState("");
     const time = useState("");
     const guests = useState(1);
-    const occasion = useState("Birthday");
+    const occasion = useState("");
     const [availableTimes, dispatch] = useReducer(updateTimes, [], initializeTimes);
 
     const navigate = useNavigate();
