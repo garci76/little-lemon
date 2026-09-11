@@ -5,15 +5,15 @@ import basket from "../../assets/basket.svg";
 
 export const Nav = () => {
     return (
-        <nav>
-            <button>
-                <img className='hamburger' src={hamburger} alt="Hamburger Menu" />
+        <nav aria-label="Main navigation">
+            <button type="button" aria-label="Open navigation menu">
+                <img className='hamburger' src={hamburger} alt="" />
             </button>
 
             <img className='logo' src='/images/Logo.svg' alt="Little Lemon Logo" />
 
-            <button>
-                <img className='basket' src={basket} alt="basket" />
+            <button type="button" aria-label="Shopping basket">
+                <img className='basket' src={basket} alt="" />
             </button>
 
             <ul className='link-font'>

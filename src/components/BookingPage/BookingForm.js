@@ -9,7 +9,7 @@ export const BookingForm = ({ availableTimes, dispatch, date: dateState, time: t
     const [occasion, setOccasion] = occasionState;
 
     return (
-        <form className="booking-form">
+        <form className="booking-form" aria-label="Restaurant reservation form">
             <label htmlFor="res-date">Choose date</label>
             <input
                 type="date"
