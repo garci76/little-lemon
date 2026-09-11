@@ -61,7 +61,20 @@ export const Main = () => {
     const submitForm = (formData) => {
         if (submitAPI(formData)) {
             navigate("/confirmed");
+            resetForm();
         }
+    }
+
+    const resetForm = () => {
+        const [, setDate] = date;
+        const [, setTime] = time;
+        const [, setGuests] = guests;
+        const [, setOccasion] = occasion;
+
+        setDate("");
+        setTime("");
+        setGuests(1);
+        setOccasion("");
     }
 
     return (

@@ -9,7 +9,7 @@ export const ConfirmedBooking = () => {
                 <p className="paragraph-font">Thank you for your reservation. We look forward to serving you!</p>
             </div>
 
-            <Link className="home-button section-title-font" to="/">
+            <Link className="home-button" to="/">
                 <button className='highlight-text-font' aria-label="On Click">
                     Returns to home
                 </button>
