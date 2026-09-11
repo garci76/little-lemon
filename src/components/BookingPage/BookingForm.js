@@ -1,7 +1,7 @@
 import "./BookingForm.css"
 
 export const BookingForm = ({ availableTimes, dispatch, date: dateState, time: timeState,
-                              guests: guestsState, occasion: occasionState }) => {
+                              guests: guestsState, occasion: occasionState, submitForm }) => {
 
     const [date, setDate] = dateState;
     const [time, setTime] = timeState;
@@ -55,7 +55,10 @@ export const BookingForm = ({ availableTimes, dispatch, date: dateState, time: t
                 <option value="Anniversary">Anniversary</option>
             </select>
 
-            <input type="submit" value="Make Your reservation" />
+            <input type="submit" value="Make Your reservation" onClick={(event) => {
+                event.preventDefault();
+                submitForm({ date, time, guests, occasion });
+            }} />
         </form>
     )
 }

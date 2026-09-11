@@ -1,6 +1,6 @@
 import {BookingForm} from "./BookingForm";
 
-export const BookingPage = ({ availableTimes, dispatch, date, time, guests, occasion }) => {
+export const BookingPage = ({ availableTimes, dispatch, date, time, guests, occasion, submitForm }) => {
 
     return (
         <main>
@@ -11,6 +11,7 @@ export const BookingPage = ({ availableTimes, dispatch, date, time, guests, occa
                 occasion={occasion}
                 availableTimes={availableTimes}
                 dispatch={dispatch}
+                submitForm={submitForm}
             />
         </main>
     );

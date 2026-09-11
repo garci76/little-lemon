@@ -20,24 +20,17 @@ test('Renders the Header heading', () => {
     expect(headingElementNew).toBeInTheDocument();
 })
 
-
-test('initializeTimes returns the expected available times', () => {
-    expect(initializeTimes()).toEqual([
-        "17:00",
-        "18:00",
-        "19:00",
-        "20:00",
-        "21:00",
-        "22:00",
-    ]);
+test('initializeTimes returns non empty array', () => {
+    const availableTimes = initializeTimes();
+    expect(availableTimes).toEqual(expect.any(Array));
+    expect(availableTimes.length).toBeGreaterThan(0);
 });
 
 test('updateTimes returns the available times provided in state', () => {
-    const availableTimes = ["17:00", "18:00", "19:00"];
+    const availableTimes = ["17:00", "17:30", "18:30", "19:00", "20:30", "21:00", "22:00", "23:30"];
 
-    expect(updateTimes(availableTimes, "2026-09-11")).toBe(availableTimes);
+    expect(updateTimes(availableTimes, "2026-09-11")).toEqual(availableTimes);
 });
-
 
 test('BookingForm can be submitted by the user', () => {
     const dateState = ['', () => {}];

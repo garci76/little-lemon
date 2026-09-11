@@ -1,19 +1,51 @@
-import {Route, Routes} from "react-router-dom";
+import {Route, Routes, useNavigate} from "react-router-dom";
 import {HomePage} from "./HomePage/HomePage";
 import {BookingPage} from "./BookingPage/BookingPage";
 import {useReducer, useState} from "react";
+import {ConfirmedBooking} from "./ConfirmedBooking/ConfirmedBooking";
 
-export const initializeTimes = () => [
-    "17:00",
-    "18:00",
-    "19:00",
-    "20:00",
-    "21:00",
-    "22:00",
-];
+// Note: the proxy of my company blocks the download of the api.js file from the url 'https://raw.githubusercontent.com/courseraap/capstone/main/api.js',
+//       so I've downloaded it and pasted the functions here...
 
-export const updateTimes = (availableTimes, selectedDate) => {
-    return availableTimes;
+// Start of api.js code...
+
+const seededRandom = function (seed) {
+    var m = 2**35 - 31;
+    var a = 185852;
+    var s = seed % m;
+    return function () {
+        return (s = s * a % m) / m;
+    };
+}
+
+const fetchAPI = function(date) {
+    let result = [];
+    let random = seededRandom(date.getDate());
+
+    for(let i = 17; i <= 23; i++) {
+        if(random() < 0.5) {
+            result.push(i + ':00');
+        }
+        if(random() < 0.5) {
+            result.push(i + ':30');
+        }
+    }
+    return result;
+};
+
+const submitAPI = function(formData) {
+    console.log('Data used to submit:', formData);
+    return true;
+};
+
+// End of api.js code.
+
+export const initializeTimes = () => {
+    return fetchAPI(new Date());
+}
+
+export const updateTimes = (availableTimes, date) => {
+    return fetchAPI(new Date(date));
 };
 
 export const Main = () => {
@@ -23,6 +55,14 @@ export const Main = () => {
     const guests = useState(1);
     const occasion = useState("Birthday");
     const [availableTimes, dispatch] = useReducer(updateTimes, [], initializeTimes);
+
+    const navigate = useNavigate();
+
+    const submitForm = (formData) => {
+        if (submitAPI(formData)) {
+            navigate("/confirmed");
+        }
+    }
 
     return (
         <Routes>
@@ -34,7 +74,9 @@ export const Main = () => {
                 occasion={occasion}
                 availableTimes={availableTimes}
                 dispatch={dispatch}
+                submitForm={submitForm}
             />} />
+            <Route path="/confirmed" element={<ConfirmedBooking />} />
         </Routes>
     )
 }
