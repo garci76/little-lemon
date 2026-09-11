@@ -52,3 +52,85 @@ test('BookingForm can be submitted by the user', () => {
     const submitButton = screen.getByRole('button', { name: /make your reservation/i });
     expect(submitButton).toBeInTheDocument();
 });
+
+test('BookingForm fields have the correct HTML5 validation attributes', () => {
+    render(
+        <BookingForm
+            availableTimes={['17:00', '18:00']}
+            dispatch={() => {}}
+            date={['', () => {}]}
+            time={['', () => {}]}
+            guests={[1, () => {}]}
+            occasion={['', () => {}]}
+        />
+    );
+
+    const dateInput = screen.getByLabelText('Choose date');
+    expect(dateInput).toHaveAttribute('type', 'date');
+    expect(dateInput).toBeRequired();
+
+    const timeInput = screen.getByLabelText('Choose time');
+    expect(timeInput).toBeRequired();
+
+    const guestsInput = screen.getByLabelText('Number of guests');
+    expect(guestsInput).toHaveAttribute('type', 'number');
+    expect(guestsInput).toHaveAttribute('min', '1');
+    expect(guestsInput).toHaveAttribute('max', '10');
+    expect(guestsInput).toBeRequired();
+
+    const occasionInput = screen.getByLabelText('Occasion');
+    expect(occasionInput).toBeRequired();
+});
+
+test('BookingForm submits valid form data', () => {
+    const submitForm = jest.fn();
+
+    render(
+        <BookingForm
+            availableTimes={['17:00', '19:00']}
+            dispatch={() => {}}
+            date={['2026-09-15', () => {}]}
+            time={['19:00', () => {}]}
+            guests={[4, () => {}]}
+            occasion={['Birthday', () => {}]}
+            submitForm={submitForm}
+        />
+    );
+
+    fireEvent.submit(screen.getByRole('form', { name: /restaurant reservation form/i }));
+
+    expect(submitForm).toHaveBeenCalledTimes(1);
+    expect(submitForm).toHaveBeenCalledWith({
+        date: '2026-09-15',
+        time: '19:00',
+        guests: 4,
+        occasion: 'Birthday'
+    });
+    expect(screen.queryByText(/please choose/i)).not.toBeInTheDocument();
+    expect(screen.queryByText(/number of guests must be greater than 0/i)).not.toBeInTheDocument();
+});
+
+test('BookingForm rejects invalid form data and displays validation errors', () => {
+    const submitForm = jest.fn();
+
+    render(
+        <BookingForm
+            availableTimes={['17:00', '19:00']}
+            dispatch={() => {}}
+            date={['', () => {}]}
+            time={['', () => {}]}
+            guests={[0, () => {}]}
+            occasion={['', () => {}]}
+            submitForm={submitForm}
+        />
+    );
+
+    fireEvent.submit(screen.getByRole('form', { name: /restaurant reservation form/i }));
+
+    expect(screen.getByText('Please choose a date.')).toBeInTheDocument();
+    expect(screen.getByText('Please choose a time.')).toBeInTheDocument();
+    expect(screen.getByText('Number of guests must be greater than 0.')).toBeInTheDocument();
+    expect(screen.getByText('Please choose an occasion.')).toBeInTheDocument();
+    expect(submitForm).not.toHaveBeenCalled();
+});
+
