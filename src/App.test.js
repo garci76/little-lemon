@@ -2,6 +2,7 @@ import { render, screen, fireEvent } from '@testing-library/react';
 import { BrowserRouter } from 'react-router-dom';
 import App from './App';
 import { initializeTimes, updateTimes } from './components/Main';
+import {BookingForm} from "./components/BookingPage/BookingForm";
 
 test('Renders the Header heading', () => {
     render(
@@ -35,4 +36,26 @@ test('updateTimes returns the available times provided in state', () => {
     const availableTimes = ["17:00", "18:00", "19:00"];
 
     expect(updateTimes(availableTimes, "2026-09-11")).toBe(availableTimes);
+});
+
+
+test('BookingForm can be submitted by the user', () => {
+    const dateState = ['', () => {}];
+    const timeState = ['', () => {}];
+    const guestsState = [1, () => {}];
+    const occasionState = ['Birthday', () => {}];
+
+    render(
+        <BookingForm
+            availableTimes={['17:00', '18:00']}
+            dispatch={() => {}}
+            date={dateState}
+            time={timeState}
+            guests={guestsState}
+            occasion={occasionState}
+        />
+    );
+
+    const submitButton = screen.getByRole('button', { name: /make your reservation/i });
+    expect(submitButton).toBeInTheDocument();
 });
