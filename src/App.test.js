@@ -16,7 +16,7 @@ test('Renders the Header heading', () => {
     const reserveButton = screen.getByRole('link', { name: /reserve table/i });
     fireEvent.click(reserveButton);
 
-    const headingElementNew = screen.getByText("Choose date");
+    const headingElementNew = screen.getByText("Choose date *");
     expect(headingElementNew).toBeInTheDocument();
 })
 
@@ -39,46 +39,52 @@ test('BookingForm can be submitted by the user', () => {
     const occasionState = ['Birthday', () => {}];
 
     render(
-        <BookingForm
-            availableTimes={['17:00', '18:00']}
-            dispatch={() => {}}
-            date={dateState}
-            time={timeState}
-            guests={guestsState}
-            occasion={occasionState}
-        />
+        <BrowserRouter>
+            <BookingForm
+                availableTimes={['17:00', '18:00']}
+                dispatch={() => {}}
+                date={dateState}
+                time={timeState}
+                guests={guestsState}
+                occasion={occasionState}
+                submitForm={() => {}}
+            />
+        </BrowserRouter>
     );
 
-    const submitButton = screen.getByRole('button', { name: /make your reservation/i });
+    const submitButton = screen.getByDisplayValue(/make your reservation/i);
     expect(submitButton).toBeInTheDocument();
 });
 
 test('BookingForm fields have the correct HTML5 validation attributes', () => {
     render(
-        <BookingForm
-            availableTimes={['17:00', '18:00']}
-            dispatch={() => {}}
-            date={['', () => {}]}
-            time={['', () => {}]}
-            guests={[1, () => {}]}
-            occasion={['', () => {}]}
-        />
+        <BrowserRouter>
+            <BookingForm
+                availableTimes={['17:00', '18:00']}
+                dispatch={() => {}}
+                date={['', () => {}]}
+                time={['', () => {}]}
+                guests={[1, () => {}]}
+                occasion={['', () => {}]}
+                submitForm={() => {}}
+            />
+        </BrowserRouter>
     );
 
-    const dateInput = screen.getByLabelText('Choose date');
+    const dateInput = screen.getByLabelText('Choose date *');
     expect(dateInput).toHaveAttribute('type', 'date');
     expect(dateInput).toBeRequired();
 
-    const timeInput = screen.getByLabelText('Choose time');
+    const timeInput = screen.getByLabelText('Choose time *');
     expect(timeInput).toBeRequired();
 
-    const guestsInput = screen.getByLabelText('Number of guests');
+    const guestsInput = screen.getByLabelText('Number of guests *');
     expect(guestsInput).toHaveAttribute('type', 'number');
     expect(guestsInput).toHaveAttribute('min', '1');
     expect(guestsInput).toHaveAttribute('max', '10');
     expect(guestsInput).toBeRequired();
 
-    const occasionInput = screen.getByLabelText('Occasion');
+    const occasionInput = screen.getByLabelText('Occasion *');
     expect(occasionInput).toBeRequired();
 });
 
@@ -86,15 +92,17 @@ test('BookingForm submits valid form data', () => {
     const submitForm = jest.fn();
 
     render(
-        <BookingForm
-            availableTimes={['17:00', '19:00']}
-            dispatch={() => {}}
-            date={['2026-09-15', () => {}]}
-            time={['19:00', () => {}]}
-            guests={[4, () => {}]}
-            occasion={['Birthday', () => {}]}
-            submitForm={submitForm}
-        />
+        <BrowserRouter>
+            <BookingForm
+                availableTimes={['17:00', '19:00']}
+                dispatch={() => {}}
+                date={['2026-09-15', () => {}]}
+                time={['19:00', () => {}]}
+                guests={[4, () => {}]}
+                occasion={['Birthday', () => {}]}
+                submitForm={submitForm}
+            />
+        </BrowserRouter>
     );
 
     fireEvent.submit(screen.getByRole('form', { name: /restaurant reservation form/i }));
@@ -114,15 +122,17 @@ test('BookingForm rejects invalid form data and displays validation errors', () 
     const submitForm = jest.fn();
 
     render(
-        <BookingForm
-            availableTimes={['17:00', '19:00']}
-            dispatch={() => {}}
-            date={['', () => {}]}
-            time={['', () => {}]}
-            guests={[0, () => {}]}
-            occasion={['', () => {}]}
-            submitForm={submitForm}
-        />
+        <BrowserRouter>
+            <BookingForm
+                availableTimes={['17:00', '19:00']}
+                dispatch={() => {}}
+                date={['', () => {}]}
+                time={['', () => {}]}
+                guests={[0, () => {}]}
+                occasion={['', () => {}]}
+                submitForm={submitForm}
+            />
+        </BrowserRouter>
     );
 
     fireEvent.submit(screen.getByRole('form', { name: /restaurant reservation form/i }));
