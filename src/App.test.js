@@ -39,7 +39,7 @@ test('BookingForm can be submitted by the user', () => {
     const occasionState = ['Birthday', () => {}];
 
     render(
-        <BrowserRouter>
+        <BrowserRouter future={{v7_startTransition: true, v7_relativeSplatPath: true}}>
             <BookingForm
                 availableTimes={['17:00', '18:00']}
                 dispatch={() => {}}
@@ -58,7 +58,7 @@ test('BookingForm can be submitted by the user', () => {
 
 test('BookingForm fields have the correct HTML5 validation attributes', () => {
     render(
-        <BrowserRouter>
+        <BrowserRouter future={{v7_startTransition: true, v7_relativeSplatPath: true}}>
             <BookingForm
                 availableTimes={['17:00', '18:00']}
                 dispatch={() => {}}
@@ -92,7 +92,7 @@ test('BookingForm submits valid form data', () => {
     const submitForm = jest.fn();
 
     render(
-        <BrowserRouter>
+        <BrowserRouter future={{v7_startTransition: true, v7_relativeSplatPath: true}}>
             <BookingForm
                 availableTimes={['17:00', '19:00']}
                 dispatch={() => {}}
@@ -122,7 +122,7 @@ test('BookingForm rejects invalid form data and displays validation errors', () 
     const submitForm = jest.fn();
 
     render(
-        <BrowserRouter>
+        <BrowserRouter future={{v7_startTransition: true, v7_relativeSplatPath: true}}>
             <BookingForm
                 availableTimes={['17:00', '19:00']}
                 dispatch={() => {}}
